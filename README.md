@@ -1,2 +1,2 @@
 # yt-song-downloader
-Webapp to convert yt videos to mp3 and then download them.  
+Script to convert yt videos to mp3 and then download them.  
