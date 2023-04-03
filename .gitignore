@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+test.ipynb
+music_files/
+API_KEY
+client_secret_918921699572-6kdf6dpt03tglo166lsogppieoec5j8d.apps.googleusercontent.com.json
