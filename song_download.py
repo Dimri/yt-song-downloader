@@ -3,6 +3,7 @@ import os
 # API client library
 import googleapiclient.discovery
 from moviepy.editor import AudioFileClip
+from config import youtube_key
 from pytube import YouTube
 
 SONG_SAVE_PATH = "music-files"
@@ -78,11 +79,9 @@ def api_information():
     # API information
     api_service_name = "youtube"
     api_version = "v3"
-    # API key
-    DEVELOPER_KEY = "AIzaSyDPmL4zbxdUYhkqQRmY5Pbl1pVy4Uh6cB0"
     # API client
     youtube = googleapiclient.discovery.build(
-        api_service_name, api_version, developerKey=DEVELOPER_KEY
+        api_service_name, api_version, developerKey=youtube_key
     )
     return youtube
 
