@@ -12,4 +12,30 @@ Add a `config.py` file with rapidapi headers and your youtube api key. <br>
 
 ## Example
 
-Run the code using `python main.py songs.txt`. In this example, `songs.txt` file contains the following songs :
+Run the code using `python main.py songs.txt`. In this example, `songs.txt` file the song :
+1. Heat Waves - Glass Animals
+
+---
+
+Output : <br>
+```
+query: Heat Waves - Glass Animals
+Glass Animals - Heat Waves (Official Video), Length: 235s, Views: 519_892_439
+Downloading Glass Animals - Heat Waves (Official Video)
+Converting to mp3
+MoviePy - Writing audio in D:\Projects\yt-song-downloader\music-files\Heat Waves - Glass Animals.mp3
+MoviePy - Done.
+Download completed
+
+
+
+
+
+Getting song information!
+Downloading album art for Heat Waves
+
+
+Changing metadata for song : Heat Waves
+DONE
+```
+
