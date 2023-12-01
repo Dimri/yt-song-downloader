@@ -17,7 +17,7 @@ def set_song_attrs(file, song_obj):
 def get_artwork(song_obj):
     try:
         with open(
-            f"{ALBUM_ART_SAVE_PATH}/{song_obj.album_art_filename}", "rb"
+            f"{ALBUM_ART_SAVE_PATH}\{song_obj.album_art_filename}", "rb"
         ) as img_in:
             return img_in.read()
     except Exception as e:
@@ -27,7 +27,7 @@ def get_artwork(song_obj):
 
 def change_metadata(song, song_obj):
     try:
-        file = music_tag.load_file(f"{SONG_SAVE_PATH}/{song}.mp3")
+        file = music_tag.load_file(f"{SONG_SAVE_PATH}\{song}.mp3")
     except Exception as e:
         print("Error loading file")
         print(e)

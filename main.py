@@ -1,3 +1,4 @@
+import time
 import fileinput
 from song_download import download
 from info_download import song_info
@@ -24,12 +25,13 @@ def set_music_metadata(song, song_obj):
 
 def main():
     for song in fileinput.input():
-        song = song.replace("\n", "")
+        song = song.replace("\n", "").replace(".mp3", "")
         print(f"query: {song}")
         download_song(song)
         song_obj = get_song_info(song)
         set_music_metadata(song, song_obj)
         print("DONE\n")
+        time.sleep(5)
 
 
 if __name__ == "__main__":
