@@ -1,4 +1,6 @@
 import os
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 # API client library
 import googleapiclient.discovery
@@ -23,7 +25,9 @@ def api_call(youtube, song_name):
 
 def get_video_ids(response):
     video_ids = []
+    # print(response["items"])
     for i, item in enumerate(response["items"]):
+        # print(item["id"])
         video_ids.append(item["id"]["videoId"])
 
     return video_ids
@@ -35,7 +39,7 @@ def download_song(song_name, video_id):
 
     # make yt object
     try:
-        yt = YouTube(link)
+        yt = YouTube(link, use_oauth=True, allow_oauth_cache=True)
     except Exception as e:
         print("Connection Error")
         print(e)
@@ -50,7 +54,9 @@ def download_song(song_name, video_id):
     # if file doesn't exist then download
     if not os.path.exists(f"{SONG_SAVE_PATH}/{song_name}.mp3"):
         print(f"Downloading {yt.title}")
-        out_file = audio_mp4.download(output_path=SONG_SAVE_PATH, filename=song_name)
+        out_file = audio_mp4.download(
+            output_path=SONG_SAVE_PATH, filename=song_name.title()
+        )
     else:
         print(f"{yt.title} already exists!")
         return None
@@ -87,6 +93,15 @@ def api_information():
 
 
 def download(song_name):
+    """
+    path_to_chromedriver = "C:\\Users\\hhsud\\Downloads\\chromedriver.exe"
+    # driver = webdriver.Chrome(path_to_chromedriver)
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    website_url = "https://free-mp3-download.net/"
+    driver.get(website_url)
+    # search box 
+    """
     youtube = api_information()
     response = api_call(youtube, song_name)
     video_ids = get_video_ids(response)

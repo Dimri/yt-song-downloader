@@ -1,5 +1,4 @@
 import fileinput
-import os
 from song_download import download
 from info_download import song_info
 from metadata import change_metadata
@@ -31,7 +30,6 @@ def main():
         song_obj = get_song_info(song)
         set_music_metadata(song, song_obj)
         print("DONE\n")
-        break
 
 
 if __name__ == "__main__":
